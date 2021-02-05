@@ -13,3 +13,9 @@ app.get("/", (req, res, next) => {
     message: "Hello from server ",
   });
 });
+
+app.post("/data", (req, res, next) => {
+  res.status(200).json({
+    message: req.body,
+  });
+});
