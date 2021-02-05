@@ -6,6 +6,10 @@ const mongoose = require("mongoose");
 
 env.config();
 
+// Routes
+
+const userRoutes = require("./routes/user");
+
 // Mongo Connection
 
 //mongodb+srv://Wangdi:<password>@shoppingcluster.mg2uo.mongodb.net/<dbname>?retryWrites=true&w=majority
@@ -23,6 +27,8 @@ mongoose
   });
 
 app.use(bodyParser);
+
+app.use("/api", userRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is lstening on port ${process.env.PORT}`);
