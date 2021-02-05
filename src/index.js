@@ -20,13 +20,14 @@ mongoose
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
     }
   )
   .then(() => {
     console.log("Database Connected");
   });
 
-app.use(bodyParser);
+app.use(express.json());
 
 app.use("/api", userRoutes);
 
