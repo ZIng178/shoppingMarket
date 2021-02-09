@@ -8,7 +8,7 @@ env.config();
 
 // Routes
 
-const userRoutes = require("./routes/user");
+const authRoutes = require("./routes/auth");
 
 // Mongo Connection
 
@@ -29,7 +29,7 @@ mongoose
 
 app.use(express.json());
 
-app.use("/api", userRoutes);
+app.use("/api", authRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is lstening on port ${process.env.PORT}`);
