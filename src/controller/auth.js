@@ -43,10 +43,11 @@ exports.signin = (req, res) => {
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
           expiresIn: "1d",
         });
-        const { firstName, lastName, email, role, fullName } = user;
+        const { _id, firstName, lastName, email, role, fullName } = user;
         res.status(200).json({
           token,
           user: {
+            _id,
             firstName,
             lastName,
             email,
@@ -61,4 +62,12 @@ exports.signin = (req, res) => {
       return res.status(400).json({ message: "Something went wrong " });
     }
   });
+};
+
+exports.requireSignIn = (req, res, next) => {
+  const token = req.headers.authorization.split(" ")[1];
+  const user = jwt.verify(token, process.env.JWT_SECRET);
+  console.log(token);
+  next();
+  // jwt.decode();
 };
