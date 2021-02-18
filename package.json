@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "mern shopping app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZIng178/shoppingMarket.git"
+  },
+  "keywords": [
+    "shopping",
+    "e-commerce",
+    "mern"
+  ],
+  "author": "Wangdi Tenzing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZIng178/shoppingMarket/issues"
+  },
+  "homepage": "https://github.com/ZIng178/shoppingMarket#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "dot-env": "0.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
