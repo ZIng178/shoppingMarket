@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
 const shortid = require("shortid");
 
@@ -6,7 +6,7 @@ exports.signup = (req, res) => {
   User.findOne({ email: req.body.email }).exec((error, user) => {
     if (user)
       return res.status(400).json({
-        error: "User already registered",
+        error: "Admin already registered",
       });
 
     const { firstName, lastName, password, email, userName } = req.body;
@@ -28,7 +28,7 @@ exports.signup = (req, res) => {
 
       if (data) {
         return res.status(201).json({
-          message: "User Created succesfully",
+          message: "Admin Created succesfully",
         });
       }
     });

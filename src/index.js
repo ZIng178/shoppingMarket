@@ -1,14 +1,16 @@
 const express = require("express");
 const env = require("dotenv");
 const app = express();
-const bodyParser = require("body-parser");
+
 const mongoose = require("mongoose");
 
 env.config();
 
 // Routes
 
-const authRoutes = require("./routes/auth");
+const authRoutes = require("../src/routes/admin/auth");
+const adminRoutes = require("../src/routes/admin/auth");
+const categoryRoutes = require("../src/routes/categories");
 
 // Mongo Connection
 
@@ -30,6 +32,9 @@ mongoose
 app.use(express.json());
 
 app.use("/api", authRoutes);
+
+app.use("/api", adminRoutes);
+app.use("/api", categoryRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is lstening on port ${process.env.PORT}`);
